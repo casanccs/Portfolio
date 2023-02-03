@@ -1,0 +1,12 @@
+Infinte mode, Challenge mode
+
+In Version 3, the following features will be added:
+1.) Color select screen per player
+2.) Pause
+3.) Grabbing stars for extra points
+    - 1 and 2 players will have 1 star
+    - 3 and 4 players will have 2 stars
+
+Changed/Added in V3.2:
+1.) Added more colors
+2.) Added Main Menu and Game Over class for customizing the look seperately without needing to look at main
