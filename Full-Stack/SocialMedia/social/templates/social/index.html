@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'social/index.css' %}">
+</head>
+<body>
+    
+    {% if auth %}
+        <div class="nav">
+            <img class="profilePic" src="{{ profile.picture.url }}">
+            <h1>{{ profile.user.username }}</h1>
+            <a href="{% url 'followers' %}">
+                <div class="followersNum">
+                    <h2>{{ profile.followers.count }}</h2>
+                    <h2>Followers</h2>
+                </div>
+            </a>
+            <a href="{% url 'following' %}">
+                <div class="followingNum">
+                    <h2>{{ profile.following.count }}</h2>
+                    <h2>Following</h2>
+                </div>
+            </a>
+            <a href="{% url 'editProfile' profile.id %}">Edit Profile</a>
+            <a href="{% url 'logout' %} ">Logout</a>
+        </div>
+        <a href="{% url 'searchProfile' %}"><h1 class="search">Search for Profiles</h1></a>
+        <a href="{% url 'createPost' %}"><h1 class="createPost">Create a Post</h1></a>
+        <a href="{% url 'messaging' profile.id %}"><h1 class="dm">Messaging</h1></a>
+        {% for entry in entries %}
+            <div class="entry">
+                <div class="header">
+                    <img class="profilePicEntry" src="{{ entry.profile.picture.url }}">
+                    <a href="{% url 'accountDetail' entry.profile.id %}"><h2>{{ entry.profile.user.username }}</h2></a>
+                    {% if entry.profile == profile %}
+                        <a class="deletePost" href="{% url 'deletePost' entry.id %}"><h3>Delete Post</h3></a>
+                        <a class="editPost" href="{% url 'editPost' entry.id %}"><h3>Edit Post</h3></a>
+                    {% endif %}
+                </div>
+                <a class="link" href="{% url 'entryDetail' entry.id %}">
+                    <div class="contents">
+                        <img class="entryPicture" src="{{ entry.picture.url }}">
+                        <p class="entryText">
+                            {{ entry.dateTime }}
+                            <br>
+                            {{ entry.text }}
+                        </p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h1>Social Media Website</h1>
+    {% endif %}
+</body>
+</html>

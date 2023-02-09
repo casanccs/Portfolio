@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'social/chat.css' %}">
+</head>
+<body>
+    <a href="{% url 'index' %}">Home</a>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="content">
+        <input type="submit" value="Send Message">
+    </form>
+
+    {% for message in messages %}
+        <a class="link" href="{% url 'accountDetail' message.author.id %}">
+            <div class="msg">
+                <img src="{{ message.author.picture.url }}">
+                <h2>{{ message.author.user.username }}: </h2>
+                <div>
+                    <p>{{ message.dateTime }}</p>
+                    <p>{{ message.content }}</p>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</body>
+</html>

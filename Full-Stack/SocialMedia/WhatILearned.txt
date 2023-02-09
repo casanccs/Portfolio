@@ -1,0 +1,28 @@
+Extending User
+Put an image that a user uploads, on the page
+    1. The "ImageField" Field type.
+    2. MEDIA_ROOT and MEDIA_URL is weird, look at it again.
+    3. Need to learn how to host static files in production, not the way we are doing it.
+    4. Why you must use urlpatterns += static() rather than have it defined with the path()'s
+    5. Understand the static()
+    6. How to display an "ImageField" on a view
+    7. Found out how use HTML forms to upload a file using the "FileSystemStorage" module to save on device. (HTML forms, function-view)
+        Go: "https://simpleisbetterthancomplex.com/tutorial/2016/08/01/how-to-upload-files-with-django.html"
+Found sort of what the "action" attribute for "form" does
+Recursive relationships
+How to count length of "relationships" of a field
+For some reason, refreshing the page will not fix styling/adding class to an attribute, so you must refresh it manually through the url
+Due to security reasons, an <input type="file"> cannot have a default value
+If CSS doesn't update, browser cache needs to be refreshed using "ctrl + f5"
+Implement "DateTimeField"
+Sorted items using "class Meta: ordering"
+Filtered items using the filter and "icontains"
+Reminded that templates do NOT allow for functions with parameters
+
+###VERY IMPORTANT!!! Learned how to reference if an object exists in a ManyToMany relationship, and giving that object a new attribute
+    ### on render. Look over this again
+Hard = using "entries = Entry.objects.filter(profile__in=[...])"
+Hard = Unioning two different Query Sets. Like if I want to select people who eat Pizza OR Wings
+django resubmission upon refresh
+Made it to where users cannot see a certain view unless they are the right account (cannot delete an entry/comment without being that
+    comments profile creator)

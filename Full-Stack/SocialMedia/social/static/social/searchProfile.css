@@ -1,0 +1,58 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+.profile{
+    position: relative;
+    background-color: grey;
+    display: flex;
+    margin: 2vw;
+    align-items: center;
+}
+
+.profile img{
+    width: 10vw;
+    height: 10vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    margin-left: 2vw;
+}
+.profile h1{
+    margin-left: 2vw;
+    font-size: 4vw;
+}
+
+.follow{
+    color: black;
+    background-color: white;
+    padding:2vw;
+    width: 12vw;
+    text-align: center;
+    font-size: 2vw;
+    position: absolute;
+    left: 100%;
+    transform: translate(-120%);
+}
+.follow h2{
+    margin: 0;
+}
+
+.following{
+    color: black;
+    background-color: white;
+    padding:2vw;
+    width: 12vw;
+    text-align: center;
+    font-size: 2vw;
+    position: absolute;
+    left: 100%;
+    transform: translate(-120%);
+}
+.following h2{
+    margin: 0;
+}
+.link{
+    color: white;
+    text-decoration: none;
+}

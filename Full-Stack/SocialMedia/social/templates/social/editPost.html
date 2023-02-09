@@ -1,0 +1,13 @@
+<a href="{% url 'index' %}">Home</a>
+<form method ="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="picture">Post's Photo (leave empty if you want to keep current):</label>
+    <br>
+    <input type="file" name="picture" id="picture" value="index.css">
+    <br>
+    <label for="entryText">Post Text:</label>
+    <br>
+    <input type="text" name="entryText" id="entryText" value="{{ post.text }}">
+    <br>
+    <input type="submit" value="Submit">
+</form>

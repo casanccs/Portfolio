@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile View</title>
+    <link rel="stylesheet" href="{% static 'social/accountDetail.css' %}">
+</head>
+<body>
+    <a href="{% url 'index' %}">Home</a>
+    {% if otherProfile != profile %}
+        <a href="{% url 'chat' otherProfile.id %}"><h1>Send a Message!</h1></a>
+    {% endif %}
+    {% for entry in entries %}
+        <div class="entry">
+            <div class="header">
+                <img class="profilePicEntry" src="{{ entry.profile.picture.url }}">
+                <h2>{{ entry.profile.user.username }}</h2>
+                {% if entry.profile == profile %}
+                    <a class="deletePost" href="{% url 'deletePost' entry.id %}"><h3>Delete Post</h3></a>
+                    <a class="editPost" href="{% url 'editPost' entry.id %}"><h3>Edit Post</h3></a>
+                {% endif %}
+            </div>
+            <a class="link" href="{% url 'entryDetail' entry.id %}">
+                <div class="contents">
+                    <img class="entryPicture" src="{{ entry.picture.url }}">
+                    <p class="entryText">
+                        {{ entry.dateTime }}
+                        <br>
+                        {{ entry.text }}
+                    </p>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+</body>
+</html>

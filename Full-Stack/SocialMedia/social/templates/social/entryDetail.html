@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'social/entryDetail.css' %}">
+</head>
+<body>
+    <a href="{% url 'index' %}">Home</a>
+    <div class="entry">
+        <div class="header">
+            <img class="profilePicEntry" src="{{ entry.profile.picture.url }}">
+            <a href="{% url 'accountDetail' entry.profile.id %}"><h2>{{ entry.profile.user.username }}</h2></a>
+            {% if entry.profile == profile %}
+                <a class="deletePost" href="{% url 'deletePost' entry.id %}"><h3>Delete Post</h3></a>
+                <a class="editPost" href="{% url 'editPost' entry.id %}"><h3>Edit Post</h3></a>
+            {% endif %}
+        </div>
+        <a class='link' href="{% url 'entryDetail' entry.id %}">
+            <div class="contents">
+                <img class="entryPicture" src="{{ entry.picture.url }}">
+                <p class="entryText">
+                    {{ entry.dateTime }}
+                    <br>
+                    {{ entry.text }}
+                </p>
+            </div>
+        </a>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="comment">
+        <input type="submit" value="Comment">
+    </form>
+    {% for comment in comments %}
+    <div class="comment">
+        <img src="{{ comment.profile.picture.url }}">
+        <a class="link" href="{% url 'accountDetail' comment.profile.id %}"><h2>{{ comment.profile.user.username }}: </h2></a>
+        <div>
+            <p>{{ comment.dateTime }}</p>
+            <p>{{ comment.text }}</p>
+        </div>
+        {% if comment.profile == profile %}
+            <a class="delete" href="{% url 'deleteComment' comment.id %}">Delete</a>
+        {% endif %}
+    </div>
+    {% endfor %}
+</body>
+</html>

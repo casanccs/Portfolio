@@ -1,0 +1,23 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+.msg{
+    display: flex;
+    background-color: rgb(64, 64, 64);
+    margin: 1vw;
+}
+
+.msg h2, .msg p{
+    margin-left: 2vw;
+}
+.msg img{
+    margin-left: 1vw;
+    width: 4vw;
+    height: 4vw;
+}
+.link{
+    text-decoration: none;
+    color: white;
+}

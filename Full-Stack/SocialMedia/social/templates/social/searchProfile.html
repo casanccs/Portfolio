@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'social/searchProfile.css' %}">
+</head>
+<body>
+    <a href="{% url 'index' %}">Home</a>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="type" name="searchProfile">
+        <input type="submit" value="Search">
+    </form>
+    {% for profile in profiles %}
+    <div class="profile">
+        {% if profile != currentProfile %}
+            <img src="{{ profile.picture.url }}">
+            <a class="link" href="{% url 'accountDetail' profile.id %}">
+                <h1>{{ profile.user.username }}</h1>
+            </a>
+            {% if profile.followed %}
+                <a class="following" href="{% url 'removeFollow' profile.id %}"><h2>Following</h2></a>
+            {% else %}
+                <a class="follow" href="{% url 'addFollow' profile.id %}"><h2>Follow</h2></a>
+            {% endif %}
+        {% endif %}
+    </div>
+    {% endfor %}
+</body>
+</html>

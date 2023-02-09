@@ -1,0 +1,27 @@
+<a href="{% url 'index' %}">Home</a>
+<h1>Create An Account</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username" value="{{ profile.user.username }}">
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" value="{{ profile.user.password }}" disabled>
+    <br>
+    <label for="email">Email:</label>
+    <input type="text" name="email" id="email" value="{{ profile.user.email }}">
+    <br>
+    <label for="firstName">First Name:</label>
+    <input type="text" name="firstName" id="firstName" value="{{ profile.user.first_name }}">
+    <br>
+    <label for="lastName">Last Name:</label>
+    <input type="text" name="lastName" id="lastName" value="{{ profile.user.last_name }}">
+    <br>
+    <label for="picture">Profile Photo (leave empty if you want to keep original): </label>
+    <input type="file" name="picture" id="picture">
+    <br>
+    <label for="bio">Bio: </label>
+    <input type="text" name="bio" id="bio" value="{{ profile.bio }}">
+    <br>
+    <input type="submit" value="Submit">
+</form>
