@@ -1,0 +1,3 @@
+Using choices
+Extending templates and using blocks
+Learned alot more about flexbox, like justify-content, 

@@ -1,0 +1,100 @@
+/*
+    Here I am purposefully attempting to copy amazon's navbar
+    1. As the viewport width decreases, the ONLY thing that changes in size is the search bar, until a certain point. (that number is 1000px)
+    2. Once the viewport width reaches the point, then everything maintains the same ratio as the viewport width.
+    3. As you zoom in, everything gets bigger.
+*/
+body{
+    margin:0;
+}
+@font-face{
+    font-family: Nunito;
+    src: url(Nunito.ttf)
+}
+
+.nav{
+    font-family: Nunito;
+    background-color: rgb(23, 23, 42);
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+.nav img{
+    width: 45px;
+    height: 45px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.profileImage{
+    margin-left: 20px;
+}
+.nav a:nth-of-type(1){
+    color: white;
+    text-decoration: none;
+    margin-left: 40px;
+}
+.nav form{
+    display: flex;
+    background-color: orange;
+    flex: 1;
+    border: 1px solid rgb(255, 239, 209);
+    border-radius: 7px;
+    margin-left: 40px;
+    height: 35px;
+}
+.nav input:nth-of-type(1){
+    background-color: rgb(255, 249, 238);
+    border: inherit;
+    border-radius: inherit;
+    font-size: 25px;
+    width: calc(100% - 45px);
+    padding:0;
+    height: 34px;
+}
+
+.nav button{
+    width: 42px;
+    background-color: orange;
+    border: 1px solid orange;
+    border-radius: 10px;
+}
+
+.nav button img{
+    height: 22px;
+    width: 22px;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: white;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 40px;
+}
+.profile p{
+    margin:0;
+}
+.profile img{
+    margin: 0;
+    margin-left: 2px;
+    height: 10px;
+    width: 10px;
+}
+
+.profile:hover{
+    text-decoration: underline;
+}
+.nav a:nth-of-type(2){
+    color: white;
+    width: 35px;
+    height: 35px;
+    margin-right: 20px;
+    margin-left: 40px;
+}
+.nav a img{
+    width: inherit;
+    height: inherit;
+    margin:0;
+}

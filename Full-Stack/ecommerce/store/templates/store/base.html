@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>My Commerce</title>{% endblock %}
+    <link rel="stylesheet" href="{% static 'store/base.css' %}">
+</head>
+<body>
+    {% block nav %}
+    <div class="nav">
+        <img class="profileImage" src="{{ profile.picture.url }}">
+        <a href="{% url 'index' %}">{{ profile.user.username }}</a>
+        <form method="post">
+            <input type="text" name="search">
+            <button type="submit"><img src="{% static 'store/search.png' %}"></button>
+        </form>
+        <div class="profile"><p>My Profile</p><img src="{% static 'store/downarrow.png' %}"></div>
+        <a href="{% url 'logout' %}"><img src="{% static 'store/cart.png' %}"></a>
+    </div>
+    {% endblock %}
+
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>
