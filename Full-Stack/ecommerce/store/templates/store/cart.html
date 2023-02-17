@@ -1,0 +1,30 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static 'store/cart.css' %}"> {% endblock %}
+
+{% block content %}
+
+    {% for item in incart %}
+        <div class="product">
+            <img class="image" src="{{ item.product.picture.url }}">
+            <div class="right">
+                <h1 class="title">{{ item.product.title }}</h1>
+                <p class="price">Price Per: ${{ item.product.price }}</p>
+                <p class="qt">Quantity: {{ item.quantity }} </p>
+            </div>
+            <div class="rightest">
+                <p class="total">Cost: ${{item.totalCost}} </p>
+                <a class="delete" href="{% url 'editItem' item.id %}">Change Quantity</a>
+                <a class="delete" href="{% url 'deleteItem' item.id %}">Delete Item</a>
+            </div>
+        </div>
+    {% endfor %}
+    <h1 class="totalPrice">Total Cost: ${{ total }}</h1>
+    <div class="cont">
+        <a class="purchase" href="{% url 'purchase' %}">Purchase</a>
+    </div>
+    
+
+    <script src="{% static 'store/cart.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static 'store/aDeliveries.css' %}"> {% endblock %}
+
+{% block content %}
+
+    {% for order in orders %}
+        <div class="product">
+            <img class="image" src="{{ order.product.picture.url }}">
+            <div class="right">
+                <h1 class="title">{{ order.product.title }}</h1>
+                <p class="qt">Quantity: {{ order.quantity }} </p>
+                <p>Date Ordered: {{ order.date_placed }}</p>
+            </div>
+            <div class="rightest">
+                <p>Status: {{ order.status }} </p>
+                <p>Dropoff Address: {{ order.buyer.address }}</p>
+                <p>Pickup Address: {{ order.product.seller.address }}</p>
+                <a href="{% url 'deliver' order.id %}">Take this Delivery</a>
+            </div>
+        </div>
+    {% endfor %}
+    
+
+    <script src="{% static 'store/cart.js' %}"></script>
+{% endblock %}

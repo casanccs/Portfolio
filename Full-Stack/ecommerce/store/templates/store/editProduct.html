@@ -1,0 +1,23 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static 'store/createProduct.css' %}"> {% endblock %}
+
+{% block content %}
+    <h1>Edit a product</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Name of product: </label>
+        <input type="text" name="title" value="{{product.title}}">
+        <br>
+        <label>Description: </label>
+        <input type="text" name="desc" value="{{product.desc}}">
+        <br>
+        <label>Cost: $</label><input type="number" name="dollar" value="{{dollar}}"><label>.</label><input type="number" name="cents" value="{{cents}}">
+        <br>
+        <label>Photos (Leave unchanged if you want the original): </label>
+        <input type="file" name="picture">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

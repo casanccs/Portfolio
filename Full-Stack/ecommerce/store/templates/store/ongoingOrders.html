@@ -1,0 +1,32 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static 'store/ongoingOrders.css' %}"> {% endblock %}
+
+{% block content %}
+
+    {% for order in orders %}
+        <div class="product">
+            <img class="image" src="{{ order.product.picture.url }}">
+            <div class="right">
+                <h1 class="title">{{ order.product.title }}</h1>
+                <p class="price">Price Per: ${{ order.product.price }}</p>
+                <p class="qt">Quantity: {{ order.quantity }} </p>
+                <p>Date Ordered: {{ order.date_placed }}</p>
+                <p>Date Delivered: {{ order.date_delivered }}</p>
+                <p class="buyer">Buyer: {{ order.buyer }}</p>
+                <p class="address">Buyer's Address: {{ order.buyer.address }}</p>
+            </div>
+            <div class="rightest">
+                <p class="total">Cost: ${{order.totalCost}} </p>
+                <p class="status":>Status: {{order.status}}</p>
+                {% if order.status == "Waiting for payment confirmation" or order.status == "Waiting for order confirmation" %}
+                    <a class="shipping" href="{% url 'shipping' order.id %}">Change to Shipping</a>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+    
+
+    <!--<script src="{% static 'store/cart.js' %}"></script>-->
+{% endblock %}

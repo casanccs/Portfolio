@@ -1,3 +1,9 @@
 Using choices
 Extending templates and using blocks
-Learned alot more about flexbox, like justify-content, 
+Learned alot more about flexbox, like justify-content, etc.
+In-view ordering
+Look at the changing the quantity purchasing code. Very weird for me.
+Using an intermediate model to govern relationship between a profile and a product, to know how many 
+    products the profile has in its cart
+Super weird occurence when you put a link in another link
+Unlisting an item

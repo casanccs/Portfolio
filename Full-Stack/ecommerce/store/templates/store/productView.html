@@ -1,0 +1,57 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static 'store/productView.css' %}"> {% endblock %}
+
+{% block content %}
+    <h1 class="title">{{ product.title}}</h1>
+    <div class="product">
+        <img class="image" src="{{ product.picture.url }}">
+        <div class="right">
+            <h2>Price per Unit: <h2>
+            <h1>${{ product.price }}</h1>
+            <h3>Rating: {{product.averageScore}} / 5 ({{product.nReviews}} people reviewed it)</h3>
+            <p>Description: {{ product.desc }}</p>
+        </div>
+        <div class="rightest">
+            {% if profile.type == "Customer" %}
+                <p class="qt">Quantity: </p>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="outer">
+                        <div class="incrementer">
+                            <input type="button" id="sub" value="-">
+                            <input type="number" class='quantity' name="quantity" value="1">
+                            <input type="button" id="add" value="+">
+                        </div>
+                    </div>
+                    <br>
+                    <input type="submit" id="addCart" value="Add To Cart">
+                </form>
+            {% endif %}
+        </div>
+    </div>
+    {% if toReview %}
+        <form class="addReviewForm" method="post">
+            {% csrf_token %}
+            <label>Description: </label>
+            <input type="text" name="desc" class="desc">
+            <label>Score out of 5:</label>
+            <input type="number" name="score" class="score">
+            <input type="submit" class="addReviewButton" value="Add Review">
+        </form>
+    {% endif %}
+    <div class="reviews">
+        {% for review in reviews %}
+            <div class="review">
+                <h3>{{ review.profile.user.username }}</h3>
+                <h2>{{ review.score }} / 5</h2>
+                <p>{{ review.desc }}</p>
+                {% if review.profile == profile %}
+                <a href="{% url 'deleteReview' review.id %}">Delete Review</a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    <script src="{% static 'store/productView.js' %}"></script>
+{% endblock %}

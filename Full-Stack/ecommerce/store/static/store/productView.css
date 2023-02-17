@@ -1,0 +1,120 @@
+@font-face{
+    font-family: Nunito;
+    src: url(Nunito.ttf)
+}
+
+.content{
+    font-family: Nunito;
+    margin-top: 60px;
+}
+
+.title{
+    font-size: 70px;
+    text-align: center;
+}
+
+.product{
+    display: flex;
+    position: relative;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(183, 183, 183);
+}
+
+.product img{
+    margin: 20px;
+    width: 25vw;
+    height: 25vw;
+    align-self: center;
+}
+
+.right{
+    flex: 1;
+}
+.right h2{
+    font-size: 30px;
+}
+.right h1{
+    font-size: 45px;
+}
+.right p{
+    font-size: 20px;
+}
+
+.right{
+    margin-left: 30px;
+}
+
+.rightest{
+    margin-right: 20px;
+    align-self: center;
+}
+
+.rightest .outer, .rightest #addCart, .rightest .qt{
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translate(-50%);
+    margin: 10px;
+    font-size: 30px;
+}
+.rightest .qt{
+    margin-top: 0px;
+}
+.incrementer{
+    display: flex;
+    align-items: center;
+    background-color: rgb(176, 176, 176);
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.incrementer input{
+    height: 45px;
+    width: 45px;
+}
+.incrementer .quantity{
+    text-align: center;
+    font-size: 40px;
+    padding-left: 15px;
+    margin: 0;
+    height: 39px;
+}
+
+.addReviewButton{
+    font-size: 30px;
+    position: relative;
+    left: 250px;
+}
+.addReviewForm{
+    font-size: 30px;
+    display: grid;
+    grid-template-columns: 250px 250px;
+    position: relative;
+    left: 10%;
+}
+.desc{
+    height: 200px;
+    font-size: 20px;
+}
+.score{
+    font-size: 30px;
+}
+
+.reviews{
+    width: 80vw;
+    height: 25vw;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.review{
+    padding: 4px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(39, 50, 22);
+    color: white;
+}

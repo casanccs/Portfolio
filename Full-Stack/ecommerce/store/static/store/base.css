@@ -5,34 +5,47 @@
     3. As you zoom in, everything gets bigger.
 */
 body{
-    margin:0;
+    margin:0px;
 }
 @font-face{
     font-family: Nunito;
     src: url(Nunito.ttf)
 }
+.content{
+    margin-top: 70px;
+}
 
 .nav{
+    position: fixed;
+    top:0px;
+    left:0px;
     font-family: Nunito;
     background-color: rgb(23, 23, 42);
     display: flex;
+    width: 100vw;
     align-items: center;
     font-size: 20px;
+    z-index: 10;
 }
-.nav img{
+.profileImage{
     width: 45px;
     height: 45px;
     margin-top: 5px;
     margin-bottom: 5px;
-}
-.profileImage{
     margin-left: 20px;
 }
-.nav a:nth-of-type(1){
+.nav .profileImage img{
+    width: 45px;
+    height: 45px;
+}
+
+.username{
     color: white;
     text-decoration: none;
     margin-left: 40px;
+
 }
+
 .nav form{
     display: flex;
     background-color: orange;
@@ -42,7 +55,7 @@ body{
     margin-left: 40px;
     height: 35px;
 }
-.nav input:nth-of-type(1){
+.nav .search{
     background-color: rgb(255, 249, 238);
     border: inherit;
     border-radius: inherit;
@@ -58,6 +71,9 @@ body{
     border: 1px solid orange;
     border-radius: 10px;
 }
+.nav button:hover{
+    cursor: pointer;
+}
 
 .nav button img{
     height: 22px;
@@ -72,9 +88,15 @@ body{
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left: 40px;
+    margin-right: 30px;
 }
+
 .profile p{
     margin:0;
+}
+.profile p:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
 .profile img{
     margin: 0;
@@ -83,18 +105,37 @@ body{
     width: 10px;
 }
 
-.profile:hover{
-    text-decoration: underline;
-}
-.nav a:nth-of-type(2){
-    color: white;
-    width: 35px;
-    height: 35px;
-    margin-right: 20px;
-    margin-left: 40px;
-}
 .nav a img{
-    width: inherit;
-    height: inherit;
-    margin:0;
+    width: 30px;
+    height: 30px;
+}
+.cart{
+    margin-right: 20px;
+}
+
+.popup{
+    position: fixed;
+    width:230px;
+    height:200px;
+    display:fixed;
+    background-color: rgb(23, 23, 42);
+    margin-top: 220px;
+    transform: translate(-55%);
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.popup p{
+    text-align: right;
+    margin: 0px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.popup a{
+    color: white;
+    text-decoration: none;
+}
+.popup a:hover{
+    text-decoration: underline;
 }

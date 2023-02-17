@@ -1,0 +1,46 @@
+@font-face{
+    font-family: Nunito;
+    src: url(Nunito.ttf)
+}
+.content{
+    margin-top: 60px;
+    font-family: Nunito;
+}
+
+.title{
+    position: relative;
+    text-align: center;
+    font-size: 50px;
+}
+
+.products{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.product{
+    display: flex;
+    flex: 400px 400px;
+    width: 400px;
+    height: 400px;
+    margin: 10px;
+    flex-direction: column;
+    border: 3px solid black;
+    align-items: center;
+    justify-content: center;
+    font-family: Nunito;
+    color: black;
+    background-color: rgb(203, 203, 203);
+}
+.product:hover{
+    background-color: rgb(132, 132, 132);
+}
+.products a{
+    text-decoration: none;
+}
+.product img{
+    width: 200px;
+    height: 200px;
+}

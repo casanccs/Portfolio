@@ -8,23 +8,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block title %}<title>My Commerce</title>{% endblock %}
     <link rel="stylesheet" href="{% static 'store/base.css' %}">
+    {% block style %} {% endblock %}
 </head>
 <body>
     {% block nav %}
     <div class="nav">
-        <img class="profileImage" src="{{ profile.picture.url }}">
-        <a href="{% url 'index' %}">{{ profile.user.username }}</a>
+        <a class="profileImage" href="{% url 'index' %}"><img src="{{ profile.picture.url }}"></a>
+        <a class="username" href="{% url 'index' %}">{{ profile.user.username }}</a>
         <form method="post">
-            <input type="text" name="search">
-            <button type="submit"><img src="{% static 'store/search.png' %}"></button>
+            {% csrf_token %}
+            {% if placeholder == "Does Not Use Search" %}
+                <input class="search" type="text" name="search" placeholder="{{ placeholder }}" disabled>
+                <button type="submit" disabled><img src="{% static 'store/search.png' %}"></button>
+            {% else %}
+                <input class="search" type="text" name="search" placeholder="{{ placeholder }}">
+                <button type="submit"><img src="{% static 'store/search.png' %}"></button>
+            {% endif %}
         </form>
-        <div class="profile"><p>My Profile</p><img src="{% static 'store/downarrow.png' %}"></div>
-        <a href="{% url 'logout' %}"><img src="{% static 'store/cart.png' %}"></a>
+        <div class="profile">
+            <p>My Profile</p>
+            <img src="{% static 'store/downarrow.png' %}">
+            <div class="popup" hidden>
+                <a href="{% url 'editProfile' %}"><p>Edit Profile</p></a>
+                {% if profile.type == "Customer" %}
+                <a href="{% url 'yourOrders' %}"><p>My Orders</p></a>
+                {% endif %}
+                {% if profile.type == "Vendor" %}
+                <a href="{% url 'index' %}"><p>My Listings</p></a>
+                <a href="{% url 'ongoingOrders' %}"><p>Ongoing Orders</p></a>
+                {% endif %}
+                {% if profile.type == "Transit" %}
+                <a href="{% url 'aDeliveries' %}"><p>Available Deliveries</p></a>
+                <a href="{% url 'myDeliveries' %}"><p>My Deliveries</p></a>
+                {% endif %}
+                <a href="{% url 'help' %}"><p>How it works</p></a>
+                <a href="{% url 'logout' %}"><p>Logout</p></a>
+            </div>
+        </div>
+        {% if profile.type == 'Customer' %}
+            <a href="{% url 'cart' %}"><img class="cart" src="{% static 'store/cart.png' %}"></a>
+        {% endif %}
     </div>
     {% endblock %}
-
+    <div class="content">
     {% block content %}
-
+    
     {% endblock %}
+    </div>
+    <script src="{% static 'store/base.js' %}"></script>
 </body>
 </html>

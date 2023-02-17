@@ -1,0 +1,43 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static 'store/myListings.css' %}"> {% endblock %}
+
+{% block content %}
+    <a href="{% url 'createProduct' %}" class="create"><h1>Create Listing +</h1></a>
+    <span class="filter">
+        <label>Filter By: </label>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <select name="filter">
+                <option value="title">Title Ascending</option>
+                <option value="-title">Title Descending</option>
+                <option value="price">Price Ascending</option>
+                <option value="-price">Price Descending</option>
+            </select>
+            <input type="submit" value="Filter">
+        </form>
+    </span>
+    <div class="products">
+        {% for product in products %}
+            <div class="product">
+                <a class="productLink" href="{% url 'productView' product.id %}">
+                    <img src="{{ product.picture.url }}">
+                    <h1>{{product.title}}</h1>
+                    <h2>${{product.price}}</h2>
+                    <h3>{{product.averageScore}} / 5 ({{product.nReviews}})</h3>
+                </a>
+                <a class='edit' href="{% url 'editProduct' product.id %}">
+                    <img src="{% static 'store/edit.png' %}">
+                </a>
+                <a class="tolist" href="{% url 'tolist' product.id %}">
+                    {% if product.unlisted == False %}
+                        <img src="{% static 'store/eye1.png' %}">
+                    {% else %}
+                        <img src="{% static 'store/eye2.png' %}">
+                    {% endif %}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
