@@ -27,7 +27,7 @@ start2 = time()
 run = True
 
 curScore = 0
-myFile = open('SpritesAndGroups_Galaga/HighScore.txt', 'r')
+myFile = open('HighScore.txt', 'r')
 highScore = int(myFile.read())
 myFile.close()
 

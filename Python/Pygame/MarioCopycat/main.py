@@ -30,9 +30,9 @@ tilemap =  [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             [2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 2, 2, 2, 2]]
 
 tsize = (800//15,800//15) #Tells us how big each tile should be
-dirt = pg.image.load('Pygame Teaching/MarioCopycat/dirt.png')
+dirt = pg.image.load('dirt.png')
 dirt = pg.transform.scale(dirt, tsize)
-grass = pg.image.load('Pygame Teaching/MarioCopycat/grass.png')
+grass = pg.image.load('grass.png')
 grass = pg.transform.scale(grass, tsize)
 
 tRect = pg.Rect(0,0,*tsize)

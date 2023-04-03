@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="{% url 'logout' %}">Logout</a>
+    <h1 id="username">{{ profile.user.username }}!</h1>
+    <h1>Welcome to the websocket testing!</h1>
+    <p id='room_id' hidden>{{ room_id }}</p>
+    <input type="text" class="text">
+    <input type="submit" class="submit">
+    {% for msg in messages %}
+        <p>[{{ msg.time }}] ({{msg.profile.user.username}}): {{ msg.content }}</p>
+    {% endfor %}
+    <script>
+        let room_id = document.querySelector('#room_id').textContent
+        let webSocket = new WebSocket(
+            'ws://' + window.location.host + '/ws/tester/' + room_id
+        );
+        let text = document.querySelector('.text');
+        let submit = document.querySelector('.submit');
+        let body = document.querySelector('body');
+
+        webSocket.onmessage = function(e){
+            let data = e.data
+            let p = document.createElement('p');
+            p.innerHTML = data;
+            body.appendChild(p);
+        }
+
+        text.onkeyup = (e) => {
+            if (e.keyCode === 13){ //This is the enter button
+                submit.click();
+            }
+        }
+
+        submit.onclick = (e) => {
+            webSocket.send(text.value);
+            text.value = '';
+        }
+
+        
+    </script>
+</body>
+</html>

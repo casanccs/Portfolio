@@ -18,9 +18,9 @@ addr1 = socket.gethostbyname(socket.gethostname()) #IPv4
 addr2 = '2600:1700:4be0:1a40:455c:9d7e:d566:4c7b' #IPv6
 
 
-sock = socket.socket(family = socket.AF_INET6)
-#sock = socket.socket()
-sock.connect((addr2, 3550))
+#sock = socket.socket(family = socket.AF_INET6)
+sock = socket.socket()
+sock.connect((addr1, 3550))
 print("Connected")
 print(sock.recv(9000).decode())
 name = input("What is your name?: ")

@@ -23,9 +23,9 @@ addr1 = socket.gethostbyname(socket.gethostname())
 #print(addr1)
 addr2 = '2600:1700:4be0:1a40:455c:9d7e:d566:4c7b'
 
-sock = socket.socket(family= socket.AF_INET6)
-#sock = socket.socket()
-sock.bind((addr2, 3550))
+#sock = socket.socket(family= socket.AF_INET6)
+sock = socket.socket()
+sock.bind((addr1, 3550))
 n = int(input("How many people will be on the server: "))
 
 sock.listen()

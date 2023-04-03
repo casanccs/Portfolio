@@ -4,13 +4,13 @@ from functions import *
 
 class RulesMenu():
     def __init__(self, menuCursor):
-        self.player1 = self.pControl(1, "Left stick ↑", "Left stick ↓", "Left stick ←", "Left stick →", (P_HEIGHT/8,P_HEIGHT/8))
+        self.player1 = self.pControl(1, "↑", "↓", "←", "→", (P_HEIGHT/8,P_HEIGHT/8))
         if menuCursor > 1:    
-            self.player2 = self.pControl(2, "Right stick ↑", "Right stick ↓", "Right stick ←", "Right stick →",(P_HEIGHT*3/8,P_HEIGHT/8))
+            self.player2 = self.pControl(2, "w", "s", "a", "d",(P_HEIGHT*3/8,P_HEIGHT/8))
         if menuCursor > 2:
-            self.player3 = self.pControl(3, "Left 1", "Left 5", "Left 4", "Left 2",(P_HEIGHT*5/8,P_HEIGHT/8))
+            self.player3 = self.pControl(3, "i", "k", "j", "l", (P_HEIGHT*5/8,P_HEIGHT/8))
         if menuCursor > 3:
-            self.player4 = self.pControl(4, "Right 1", "Right 5", "Right 4", "Right 2",(P_HEIGHT*7/8,P_HEIGHT/8))
+            self.player4 = self.pControl(4, "t", "g", "f", "h",(P_HEIGHT*7/8,P_HEIGHT/8))
 
         self.normRulesText = makeText3(text = "Avoid the red balls and grab the stars!", location = (P_HEIGHT_H,P_HEIGHT*6/8), color = color["White"], size = 50)
             

@@ -6,7 +6,7 @@ class Bullet(pg.sprite.Sprite):
         pg.sprite.Sprite.__init__(self)
 
 
-        self.og = pg.image.load('Shooter/Bullet.png')
+        self.og = pg.image.load('Bullet.png')
         self.og = pg.transform.scale(self.og,(50,20))
         self.ogr = self.og.get_rect(center = ppos)
         self.image = pg.transform.rotate(self.og,angle)

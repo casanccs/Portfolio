@@ -1,0 +1,2 @@
+1. In order to properly understand the FileField, and ImageField, I had to understand static file management.
+2.

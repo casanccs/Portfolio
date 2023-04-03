@@ -1,0 +1,3 @@
+A user can submit a photo to the server (us), and we save it into our file system, and the
+    user can see ALL of the submitted photos that the server has.
+

@@ -5,7 +5,7 @@ class Player(pg.sprite.Sprite):
     def __init__(self):
         pg.sprite.Sprite.__init__(self)
 
-        self.og = pg.image.load('Shooter/topPlayer.png')
+        self.og = pg.image.load('topPlayer.png')
         self.og = pg.transform.scale(self.og, (100,100))
         self.ogr = self.og.get_rect(center = (400,400))
 

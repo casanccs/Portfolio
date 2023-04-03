@@ -16,9 +16,9 @@ box1.fill("red")
 
 turn = 1
 
-x = pg.image.load('PygameTicTacToe/x.png')
+x = pg.image.load('x.png')
 x = pg.transform.scale(x,(200,200))
-o = pg.image.load('PygameTicTacToe/o.png')
+o = pg.image.load('o.png')
 o = pg.transform.scale(o,(200,170))
 
 xTiles = []

@@ -1,0 +1,8 @@
+Using model.Forms and ModelForm
+Using built in LoginView and LogoutView
+Somwhat learned the File() object and UploadedFile() object
+Understanding why FileField(upload_to='blah/') is important, and what its used for
+
+First of all, why did:
+    {% static 'fushi.png' %} work but not {% static 'fushi_clone.png' %}
+    Then when changing it to {{ image.url }}, it all works

@@ -28,8 +28,7 @@ while MAIN:
 
         menuWindow.update(SCREEN,events)
 
-    textures = [pg.image.load('TileMapCreator/textures/dirt.png'),pg.image.load('TileMapCreator/textures/grass.png')]
-    textures = list(map(pg.image.load,['TileMapCreator/textures/' + string for string in listdir('TileMapCreator/textures')]))
+    textures = list(map(pg.image.load,['textures/' + string for string in listdir('textures')]))
     print(textures)
     createWindow = Create(int(menuWindow.numTilesX),int(menuWindow.numTilesY),textures)
     inventoryWindow = Inventory(textures)

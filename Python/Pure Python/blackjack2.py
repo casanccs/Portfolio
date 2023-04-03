@@ -67,7 +67,7 @@ def read(lines, person):
 
 
 system('cls')
-file = open('bj1players.txt','r')
+file = open('blackjack2.txt','r')
 saved = file.readlines()
 players = []
 

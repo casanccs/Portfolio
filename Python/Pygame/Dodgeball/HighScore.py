@@ -4,7 +4,7 @@ import os as fileI
 class HighScore():
     def __init__(self,score,numOfP):
         self.check = False
-        fileString = fileI.getcwd()+"\\V1.4\\V1.4.1\\Highscore.txt"
+        fileString = "Highscore.txt"
         self.file = open(fileString,"r+")
         self.currentH = self.file.readline()
         self.currentH2 = self.file.readline()

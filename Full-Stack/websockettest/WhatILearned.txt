@@ -1,0 +1,3 @@
+Using the Django Channels API.
+Learning a little bit about JavaScript's WebSocket API.
+More familiarity with using "stock" JavaScript

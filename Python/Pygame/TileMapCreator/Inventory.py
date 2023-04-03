@@ -11,7 +11,7 @@ class Inventory():
 
         self.screen.fill('brown')
         #self.screen.set_alpha(150)
-        self.arrowup = pg.transform.scale(pg.image.load('TileMapCreator/arrow.png'),(int(self.screenSize[0]*.2),int(self.screenSize[1]*.1)))
+        self.arrowup = pg.transform.scale(pg.image.load('arrow.png'),(int(self.screenSize[0]*.2),int(self.screenSize[1]*.1)))
         self.arrowupr = self.arrowup.get_rect(centerx = (self.screenSize[0]//2), top = (self.screenSize[1]//30))
         self.arrowdown = pg.transform.rotate(self.arrowup,180)
         self.arrowdownr = self.arrowdown.get_rect(centerx = (self.screenSize[0]//2), bottom = int(29*self.screenSize[1]/30))

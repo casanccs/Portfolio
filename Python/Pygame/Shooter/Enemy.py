@@ -8,17 +8,17 @@ class Enemy(pg.sprite.Sprite):
         if type == 0: #normal zombie
             self.speed = 6
             self.hp = 10
-            self.og = pg.image.load('Shooter/normalZombie.png')
+            self.og = pg.image.load('normalZombie.png')
             self.og = pg.transform.scale(self.og, (100,100))
         elif type == 1: #fast zombie
             self.speed = 8
             self.hp = 5
-            self.og = pg.image.load('Shooter/fastZombie.png')
+            self.og = pg.image.load('fastZombie.png')
             self.og = pg.transform.scale(self.og, (75,75))
         else: #slow zombie
             self.speed = 3
             self.hp = 20
-            self.og = pg.image.load('Shooter/slowZombie.png')
+            self.og = pg.image.load('slowZombie.png')
             self.og = pg.transform.scale(self.og, (125,125))
 
         spawn = randint(0,3)
